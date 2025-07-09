@@ -1,19 +1,4 @@
 {
-  "typescript": [
-    {
-      "files": [
-        "package.json",
-        "package-lock.json"
-      ],
-      "pattern":{
-        "search": "\"version\": ",
-        "read": "/&/s/.*\"\\([^\",]*\\)\".*/\\1/p",
-        "replace": "\"version\": \"&\","
-      },
-      "public": "version",
-      "type": "patch"
-    }
-  ],
   "dart": [
     {
       "files": [

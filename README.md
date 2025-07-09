@@ -1,7 +1,7 @@
 # libraries
+
 Repository for my libraries
 
-- [x] [Published npm packages](https://www.npmjs.com/search?q=%40evgenii-shcherbakov)
 - [x] [Published pub.dev packages](https://pub.dev/packages?q=publisher%3Aiipekolict.infinityfreeapp.com)
 - [x] [Published Maven Central packages](https://central.sonatype.com/search?smo=true&q=io.github.evgenii-shcherbakov)
 
@@ -18,7 +18,6 @@ Repository for my libraries
 
 Platform:
 
-- Node 18
 - Dart 3
 - Java 19
 
@@ -27,51 +26,8 @@ Platform:
 ### Bootstrap project
 
 ```shell
-git clone git@github.com:IIPEKOLICT/libraries.git
+git clone git@github.com:yauheni-shcharbakou/libraries.git
 cd libraries
-npm i
-```
-
----
-
-### TypeScript
-
-##### Bootstrap new typescript library
-
-```shell
-chmod +x scripts/helpers/new.sh
-scripts/helpers/new.sh --typescript $LIBRARY_NAME
-cd typescript/$LIBRARY_NAME
-```
-
-##### Link and use typescript library in other packages
-
-Go to library folder, then:
-
-```shell
-npm run mount
-```
-
-After that go to package, where linked library need and:
-
-```shell
-npm link $LIBRARY_NAME
-```
-
-Now you can use linked library
-
-##### Build all changed typescript libs
-
-```shell
-chmod +x scripts/main.sh
-scripts/main.sh typescript build $KEYSTORE_HOST $KEYSTORE_ACCESS_TOKEN
-```
-
-##### Build and publish all changed typescript libs
-
-```shell
-chmod +x scripts/main.sh
-scripts/main.sh typescript publish $KEYSTORE_HOST $KEYSTORE_ACCESS_TOKEN
 ```
 
 ---

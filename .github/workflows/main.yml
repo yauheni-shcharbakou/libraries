@@ -3,14 +3,12 @@ name: 'Main'
 on:
   push:
     paths:
-      - 'typescript/**'
       - 'dart/**'
       - 'kotlin/**'
     branches:
       - 'main'
   pull_request:
     paths:
-      - 'typescript/**'
       - 'dart/**'
       - 'kotlin/**'
     branches:
@@ -26,7 +24,6 @@ jobs:
     runs-on: 'ubuntu-latest'
 
     outputs:
-      typescript: '${{ steps.check-dirs.outputs.typescript }}'
       dart: '${{ steps.check-dirs.outputs.dart }}'
       kotlin: '${{ steps.check-dirs.outputs.kotlin }}'
 
@@ -39,42 +36,12 @@ jobs:
         id: 'check-dirs'
         run: 'chmod +x scripts/github/check_changed_dirs.sh && scripts/github/check_changed_dirs.sh'
 
-  Typescript:
-    runs-on: 'ubuntu-latest'
-    needs:
-      - 'check'
-
-    if: ${{ needs.check.outputs.typescript == 'true' }}
-
-    permissions:
-      contents: 'write'
-      id-token: 'write'
-
-    steps:
-      - name: 'Load code'
-        uses: 'actions/checkout@v3'
-        with:
-          fetch-depth: 2
-      - name: 'Setup Node'
-        uses: 'actions/setup-node@v3'
-        with:
-          node-version: '18.x'
-          registry-url: 'https://registry.npmjs.org'
-          scope: '@evgenii-shcherbakov'
-          always-auth: 'true'
-      - name: 'Build libraries with changes'
-        if: ${{ github.event_name == 'pull_request' }}
-        run: 'chmod +x scripts/main.sh && scripts/main.sh typescript build'
-      - name: 'Build & publish libraries with changes'
-        if: ${{ github.event_name == 'push' }}
-        run: 'chmod +x scripts/main.sh && scripts/main.sh typescript publish'
-
   Dart:
     runs-on: 'ubuntu-latest'
     needs:
-      - 'check'
+      - 'Check'
 
-    if: ${{ needs.check.outputs.dart == 'true' }}
+    if: ${{ needs.Check.outputs.dart == 'true' }}
 
     permissions:
       contents: 'write'
@@ -97,9 +64,9 @@ jobs:
   Kotlin:
     runs-on: 'ubuntu-latest'
     needs:
-      - 'check'
+      - 'Check'
 
-    if: ${{ needs.check.outputs.kotlin == 'true' }}
+    if: ${{ needs.Check.outputs.kotlin == 'true' }}
 
     permissions:
       contents: 'write'

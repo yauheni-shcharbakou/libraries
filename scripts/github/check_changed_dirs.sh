@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-TARGETS=("typescript" "dart" "kotlin")
+TARGETS=("dart" "kotlin")
 
 expose_output() {
   local TARGET="$1"

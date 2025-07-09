@@ -12,12 +12,6 @@ dist/
 keystore/
 *.env
 
-### Node
-
-node_modules
-package-lock.json
-.npmrc
-
 ### Dart
 
 .dart_tool/

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-FOLDER="$1" # required parameter (typescript | dart | kotlin)
+FOLDER="$1" # required parameter (dart | kotlin)
 MODE="$2" # required parameter (publish | build)
 KEYSTORE_HOST=${KEYSTORE_HOST:-$3}
 KEYSTORE_ACCESS_TOKEN=${KEYSTORE_ACCESS_TOKEN:-$4}

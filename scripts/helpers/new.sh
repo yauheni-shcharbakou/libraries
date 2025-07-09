@@ -7,11 +7,6 @@ bootstrap_library() {
   chmod +x scripts/helpers/inject_license.sh
 
   case "$TYPE" in
-    --typescript)
-      mkdir -p typescript
-      cp -rp templates/typescript "typescript/$NAME"
-      scripts/helpers/inject_license.sh "typescript/$NAME/LICENSE"
-    ;;
     --dart)
       mkdir -p dart
       cp -rp templates/dart "dart/$NAME"
